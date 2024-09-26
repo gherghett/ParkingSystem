@@ -15,6 +15,6 @@ public class PricedPerStartedHour : IPricingStrategy
     {
         DateTime end = ticket.EndTime ?? DateTime.Now;
         TimeSpan parkedTime = end - ticket.StartTime;
-        return _pricePerHour * (decimal)Math.Floor(parkedTime.TotalHours);
+        return _pricePerHour * (decimal)Math.Ceiling(parkedTime.TotalHours);
     }
 }
